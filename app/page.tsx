@@ -23,8 +23,16 @@ interface Tool {
 
 const tools: Tool[] = [
   {
-    title: "Wireframe → Content",
-    description: "Turn a wireframe outline into structured, ready-to-review page content.",
+    title: "Word document stylizer",
+    description: "Turn pasted text or a draft .docx into a DH-branded, editable Word memo.",
+    href: "https://dh-doc-brander.vercel.app",
+    external: true,
+    cta: "Open tool",
+    icon: FileText,
+  },
+  {
+    title: "Website content template builder",
+    description: "Turn a wireframe or prototype into structured, ready-to-review page content.",
     href: "https://wireframe-to-content.wearedh.com",
     external: true,
     cta: "Open tool",
@@ -38,14 +46,7 @@ const tools: Tool[] = [
     cta: "Open tool",
     icon: Link2,
   },
-  {
-    title: "Word Doc Template",
-    description: "Turn pasted text or a draft .docx into a DH-branded, editable Word memo.",
-    href: "https://dh-doc-brander.vercel.app",
-    external: true,
-    cta: "Open tool",
-    icon: FileText,
-  },
+ 
 ];
 
 export default function Home() {
