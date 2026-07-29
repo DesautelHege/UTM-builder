@@ -52,7 +52,7 @@ const tools: Tool[] = [
 export default function Home() {
   return (
     <div className="min-h-screen bg-background">
-      <ToolsHeader title="DH Tools" subtitle="A starting point for DH's internal tools." />
+      <ToolsHeader title="DH Tools" subtitle="Internal tools for the DH team!" />
 
       <main className="mx-auto max-w-5xl px-8 py-12">
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-3">
