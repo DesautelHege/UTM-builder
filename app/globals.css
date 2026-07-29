@@ -1,0 +1,119 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+    --font-heading: var(--font-sans);
+    --font-sans: var(--font-sans);
+    --color-sidebar-ring: var(--sidebar-ring);
+    --color-sidebar-border: var(--sidebar-border);
+    --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+    --color-sidebar-accent: var(--sidebar-accent);
+    --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+    --color-sidebar-primary: var(--sidebar-primary);
+    --color-sidebar-foreground: var(--sidebar-foreground);
+    --color-sidebar: var(--sidebar);
+    --color-chart-5: var(--chart-5);
+    --color-chart-4: var(--chart-4);
+    --color-chart-3: var(--chart-3);
+    --color-chart-2: var(--chart-2);
+    --color-chart-1: var(--chart-1);
+    --color-ring: var(--ring);
+    --color-input: var(--input);
+    --color-border: var(--border);
+    --color-destructive: var(--destructive);
+    --color-accent-foreground: var(--accent-foreground);
+    --color-accent: var(--accent);
+    --color-muted-foreground: var(--muted-foreground);
+    --color-muted: var(--muted);
+    --color-secondary-foreground: var(--secondary-foreground);
+    --color-secondary: var(--secondary);
+    --color-primary-foreground: var(--primary-foreground);
+    --color-primary: var(--primary);
+    --color-popover-foreground: var(--popover-foreground);
+    --color-popover: var(--popover);
+    --color-card-foreground: var(--card-foreground);
+    --color-card: var(--card);
+    --color-foreground: var(--foreground);
+    --color-background: var(--background);
+    --radius-sm: calc(var(--radius) * 0.6);
+    --radius-md: calc(var(--radius) * 0.8);
+    --radius-lg: var(--radius);
+    --radius-xl: calc(var(--radius) * 1.4);
+    --radius-2xl: calc(var(--radius) * 1.8);
+    --radius-3xl: calc(var(--radius) * 2.2);
+    --radius-4xl: calc(var(--radius) * 2.6);
+}
+
+/* Base: shadcn "luma" style on the stone (warm gray) base color.
+   DH brand values are set inline below, marked [DH], sourced from the DH
+   Internal Products UI Style Guide in the wiki.
+
+   Important: DH values are written as hex directly in THIS block rather than
+   as a later override block. Lightning CSS downgrades oklch() into a hex
+   fallback plus an @supports (color: lab(...)) rule that it emits after the
+   plain declarations — so a later hex-only :root block loses to the preset's
+   @supports rule in every browser that supports lab(). Setting the value here
+   removes the oklch entirely, so there is no @supports rule to lose to.
+
+   Re-running `shadcn init` rewrites this file and will drop these. */
+:root {
+    /* [DH] Warm gray page shell (Tailwind stone-100) with white cards on top. */
+    --background: #f5f5f4;
+    --foreground: #1e293b;
+
+    /* [DH] Cards stay white so they lift off the warm gray page. */
+    --card: #ffffff;
+    --card-foreground: #1e293b;
+    --popover: #ffffff;
+    --popover-foreground: #1e293b;
+
+    /* [DH] Orchid is the required primary action color. White text on orchid is
+       only 2.44:1 and fails WCAG, so the foreground is DH black at 8.51:1 (AAA). */
+    --primary: #ce8fdd;
+    --primary-foreground: #010202;
+
+    /* [DH] Panels sit a step darker than the page so they still read as
+       surfaces now that the background is no longer white. */
+    --secondary: #e7e5e4;
+    --secondary-foreground: #0f172a;
+    --muted: #e7e5e4;
+    --muted-foreground: #64748b;
+    --accent: #e7e5e4;
+    --accent-foreground: #0f172a;
+
+    --border: #d6d3d1;
+    --input: #d6d3d1;
+    --ring: #ce8fdd;
+    --destructive: #dc2626;
+
+    /* Preset (stone/lime) values below are unchanged. */
+    --chart-1: oklch(0.897 0.196 126.665);
+    --chart-2: oklch(0.768 0.233 130.85);
+    --chart-3: oklch(0.648 0.2 131.684);
+    --chart-4: oklch(0.532 0.157 131.589);
+    --chart-5: oklch(0.453 0.124 130.933);
+    --radius: 0.625rem;
+    --sidebar: oklch(0.985 0.001 106.423);
+    --sidebar-foreground: oklch(0.147 0.004 49.25);
+    --sidebar-primary: oklch(0.216 0.006 56.043);
+    --sidebar-primary-foreground: oklch(0.985 0.001 106.423);
+    --sidebar-accent: oklch(0.97 0.001 106.424);
+    --sidebar-accent-foreground: oklch(0.216 0.006 56.043);
+    --sidebar-border: oklch(0.923 0.003 48.717);
+    --sidebar-ring: oklch(0.709 0.01 56.259);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+    }
+  body {
+    @apply bg-background text-foreground;
+    }
+  html {
+    @apply font-sans;
+    }
+}
